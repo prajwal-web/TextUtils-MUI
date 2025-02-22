@@ -17,9 +17,12 @@ export default function TextForm({mode}) {
     setValue('')
   }
   const handleCapitalize = () =>{
-    const text = value.split('')
-    const captext = text[0].toUpperCase() + text.slice(1).join('')
-    setValue(captext)
+    const captext = value
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  
+  setValue(captext);
 
   }
   const handleCopy = () => {
