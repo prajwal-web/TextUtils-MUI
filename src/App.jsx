@@ -12,7 +12,7 @@ function App() {
  const [btnText,setBtnText] = useState("Enable Dark Mode")
 const toggleMode = () =>{
   if(mode==='black'){
-    document.body.style.backgroundColor="gray"
+    document.body.style.backgroundColor="#042743"
     setMode('white')
     setBtnText("Enable Light Mode")
   }else{

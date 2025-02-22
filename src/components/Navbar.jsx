@@ -19,7 +19,7 @@ export default function Navbar({mode,toggleMode,btnText}) {
   return (
    
    <>
-     <AppBar position="static" sx={{backgroundColor:mode==='black'?'white':'gray',color:mode==='black'?'black':'white'}}>
+     <AppBar position="static" sx={{backgroundColor:mode==='black'?'white':'black',color:mode==='black'?'black':'white'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
