@@ -2,15 +2,22 @@ import * as React from 'react';
 import { Button,Box, Container, TextareaAutosize } from '@mui/material';
 
 // eslint-disable-next-line react/prop-types
-export default function TextForm({mode}) {
+export default function TextForm({mode,showAlert}) {
  const [value,setValue] = React.useState('');
 
   const handleUpperCase = () =>{
     setValue(value.toUpperCase())
+    if(value.length>0){
+
+      showAlert('success',"Converted to UpperCase.")
+    }
   }
   
   const handleLowerCase = () =>{
     setValue(value.toLowerCase())
+    if(value.length>0){
+    showAlert('success',"Converted to LowerCase.")
+    }
   }
   
   const handleClear = () =>{
@@ -23,10 +30,15 @@ export default function TextForm({mode}) {
     .join(' ');
   
   setValue(captext);
-
+  if(value.length>0){
+  showAlert('success',"Capitalized the text.")
+  }
   }
   const handleCopy = () => {
     navigator.clipboard.writeText(value)
+    if(value.length>0){
+    showAlert('success',"Copied to the Clip Board.")
+    }
   }
 
   const handleReverseText = () =>{
@@ -34,6 +46,9 @@ export default function TextForm({mode}) {
   var newWords = words.map(word => word.split("").reverse().join("")); 
   var newText = newWords.join(" "); 
    setValue(newText)
+   if(value.length>0){
+   showAlert('success',"Reversed the Text.")
+   }
   }
   
   return (
