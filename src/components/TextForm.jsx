@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button,Box, Container, TextareaAutosize } from '@mui/material';
 
+
 // eslint-disable-next-line react/prop-types
 export default function TextForm({mode,showAlert}) {
  const [value,setValue] = React.useState('');
@@ -8,7 +9,6 @@ export default function TextForm({mode,showAlert}) {
   const handleUpperCase = () =>{
     setValue(value.toUpperCase())
     if(value.length>0){
-
       showAlert('success',"Converted to UpperCase.")
     }
   }

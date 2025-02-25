@@ -11,7 +11,7 @@ import DissAlert from "./components/DissAlert"
 
 function App() {
  const [mode, setMode] = useState("black")
- const [btnText,setBtnText] = useState("Enable Dark Mode")
+ const [btnText,setBtnText] = useState(" Dark ")
  const [alert,setAlert] = useState("");
 
  //Toggle mode
@@ -19,12 +19,12 @@ const toggleMode = () =>{
   if(mode==='black'){
     document.body.style.backgroundColor="#042743"
     setMode('white')
-    setBtnText("Enable Light Mode")
+    setBtnText(" Light ")
     showAlert('success','Dark Mode has been enabled.')
   }else{
     document.body.style.backgroundColor="white"
     setMode('black')
-    setBtnText("Enable Dark Mode")
+    setBtnText(" Dark ")
     showAlert('success','Light Mode has been enabled.')
   }
 }
@@ -35,13 +35,21 @@ const showAlert = (type,message)=>{
     msg:message,
     type:type
   })
+  
   setTimeout(()=>{
      setAlert("")
   },2000)
 }
+
+//body bgcolor
+const bgColor = (color) =>{
+   document.body.style.backgroundColor = color
+   showAlert('success',`${color} colour has been enabled.`)
+   
+}
   return (
     <>
-      <Navbar mode={mode} toggleMode={toggleMode} btnText={btnText}/>
+      <Navbar mode={mode} toggleMode={toggleMode} btnText={btnText} bgcolor={bgColor}/>
       <DissAlert alert={alert}/>
       <ThemeProvider theme={theme}>
 

@@ -16,23 +16,22 @@ const PinkSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const label = { inputProps: { 'aria-label': 'Color switch demo' } };
-export default function ColorBtn() {
+// eslint-disable-next-line react/prop-types
+export default function ColorBtn({mode,bgColor}) {
   return (
     <>
-    <Container sx={{display:'flex',justifyContent:'center',alignItems:'center',marginLeft:70  ,fontWeight:600,color:'black'}}>
+    <Container sx={{fontWeight:600,color:mode==='black'?'black':'white'}}>
 
     Blue
-    <Switch {...label}  />
+    <Switch {...label}  onClick={()=>bgColor('blue')}  />
     Purple
-      <Switch {...label} onClick={(e)=>console.log(e.target.value)} color="secondary" />
+      <Switch {...label} onClick={()=>bgColor('purple')} color="secondary" />
       Orange
-      <Switch {...label} onClick={(e)=>console.log(e.target.value)} color="warning" />
-      Success
-      <Switch {...label} onClick={(e)=>console.log(e.target.value)} color="success" />
+      <Switch {...label} onClick={()=>bgColor('orange')} color="warning" />
+      green
+      <Switch {...label}  onClick={()=>bgColor('green')} color="success" />
       Pink
-      <PinkSwitch {...label}onClick={(e)=>console.log(e.target.value)}  />
-      Black
-      <Switch {...label} onClick={(e)=>console.log(e.target.value)}  color="black" />
+      <PinkSwitch {...label}  onClick={()=>bgColor('pink')} />
     </Container>
     </>
   );

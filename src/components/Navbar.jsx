@@ -9,13 +9,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-// import ColorBtn from './ColorBtn';
+import ColorBtn from './ColorBtn';
 import Switch from '@mui/material/Switch';
 
 const pages = ['Home', 'About', 'Contact'];
 const label = { inputProps: { 'aria-label': 'Color switch demo' } };
 // eslint-disable-next-line react/prop-types
-export default function Navbar({mode,toggleMode,btnText}) {
+export default function Navbar({mode,toggleMode,btnText,bgcolor}) {
   return (
    
    <>
@@ -83,9 +83,11 @@ export default function Navbar({mode,toggleMode,btnText}) {
               </Button>
             ))}
           </Box>
-          {/* <ColorBtn/> */}
+          <Box display='flex' justifyContent='center' alignItems='center' >
+          <ColorBtn mode = {mode} bgColor = {bgcolor}/>
           <Typography sx={{color:mode==='black'?'black':'white'}}>{btnText}</Typography>
           <Switch {...label} onClick={toggleMode}  color="black" />
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
